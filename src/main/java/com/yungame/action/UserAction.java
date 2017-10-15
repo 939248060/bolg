@@ -21,7 +21,7 @@ public class UserAction extends ActionSupport {
 
 	private static final long serialVersionUID = 1L;
 
-	@Autowired
+	@Autowired  
 	private UserService userService;
 	
 	public Users user;
