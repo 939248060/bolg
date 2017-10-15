@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+	<constant name="struts.objectFactory" value="spring" />
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+
+
+	<package name="default" namespace="/" extends="struts-default">
+	<interceptors>
+	    <interceptor name="logininterceptor" class="com.yungame.interceptor.UserInterceptor">
+	    </interceptor>
+	    <interceptor-stack name="loginStack">  
+                   <interceptor-ref name="logininterceptor">  
+                       <param name="excludeMethods">loginUser</param>  
+                   </interceptor-ref>  
+                   <interceptor-ref name="defaultStack"></interceptor-ref>  
+            </interceptor-stack>  
+	</interceptors>
+	<default-interceptor-ref name="loginStack"/>
+		<default-action-ref name="index" />
+		<global-results>
+		    <result name="login">/login.jsp</result>
+		</global-results>		
+		<action name="index">
+		   <result type="redirect">userAction_selectUser_main</result>
+		</action>
+		<action name="*_*_*" class="{1}"
+			method="{2}">
+			<result name="{2}">/WEB-INF/view/{3}.jsp</result>
+			<result name="{2}_main" type="redirect">userAction_selectUser_main</result>
+			<allowed-methods>addUser,selectUser,loginUser,outloginUser,selectArticle</allowed-methods>
+		</action>
+	</package>
+
+
+	<!-- 引入资源文件 -->
+	<constant name="struts.custom.i18n.resources" value="messageResource"></constant>
+
+</struts>

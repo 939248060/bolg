@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+	<constant name="struts.objectFactory" value="spring" />
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+
+
+	<package name="default" namespace="/" extends="struts-default">
+		
+		<default-action-ref name="index" />
+		<global-results><result name="login">/login.jsp</result></global-results>		
+		<action name="index">
+		   <result type="redirect">weixin_selectUser_main</result>
+		</action>
+		<action name="weixin_*_*" class="userAction"
+			method="{1}">
+			<result name="{1}">/WEB-INF/view/{2}.jsp</result>
+			<result name="{1}_main" type="redirect">weixin_selectUser_main</result>
+			<allowed-methods>addUser,selectUser,loginUser,outloginUser</allowed-methods>
+		</action>
+	</package>
+
+
+	<!-- 引入资源文件 -->
+	<constant name="struts.custom.i18n.resources" value="messageResource"></constant>
+
+</struts>
