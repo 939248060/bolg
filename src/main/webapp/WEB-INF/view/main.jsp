@@ -18,7 +18,8 @@
     <c:if test="${!empty user }">
 	<div class="container userInfo">
 	   <div class="col-sm-12 col-md-2">
-	     <img class="img-responsive touxiang img-rounded" alt="头像" src="images/touxiang.jpg" height="200"/>
+	     <img class="img-responsive touxiang img-rounded" alt="头像" src="/bolg/images/Penguins.jpg" height="200"/>
+	     <a href="${user.headUrl }">下载头像</a>
 	   </div>
 	   <div class="col-sm-12 col-md-10">
 	      <ul>
@@ -35,7 +36,6 @@
 	   <iframe width="100%" height="100%" frameborder=0 scrolling="no"
 							src="articleAction_selectArticle_content"></iframe>
 	</div>
-	<%@include file="/WEB-INF/view/admin_main.jsp" %>
 	<%@include file="/WEB-INF/view/buttom.jsp" %>
 	<%@include file="/utilpage/stylebutton.jsp"%>
 </body>

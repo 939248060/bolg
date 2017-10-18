@@ -10,7 +10,7 @@
 <body>
     <%@include file="/WEB-INF/view/top.jsp" %>
 	<div class="container">
-		<form class="form-horizontal" role="form" action="userAction_addUser_main" method="post" >
+		<form class="form-horizontal" role="form" action="userAction_addUser_main" method="post" enctype="multipart/form-data">
 			<div class="form-group">
 				<label for="username" class="col-sm-2 control-label">用户名</label>
 				<div class="col-sm-10">
@@ -31,6 +31,13 @@
 					<input type="radio" class="" name="user.sex"
 						placeholder="请选择性别" value="1" checked="checked">男 <input type="radio"
 						class="" name="user.sex" placeholder="请选择性别" value="2">女
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="headUrl" class="col-sm-2 control-label">头像</label>
+				<div class="col-sm-10">
+					<input type="file" class="" name="image" id="upload"/>
+					<img alt="头像" src="/blog/images/touxiang.jpg" width="200px" height="200" id="touxiang">
 				</div>
 			</div>
 			<div class="form-group">
@@ -84,5 +91,13 @@
 		</form>
 	</div>
 	<%@include file="/utilpage/stylebutton.jsp"%>
+	<script type="text/javascript">
+	  $(function() {
+		$("#upload").change(function(){
+			alert($(this).val());
+			$("#touxiang").attr("src",$(this).val());
+		})
+	})
+	</script>
 </body>
 </html>

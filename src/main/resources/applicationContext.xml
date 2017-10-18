@@ -33,6 +33,7 @@
         <!-- 配置Hibernate属性 -->
         <property name="hibernateProperties">
             <props>
+            <prop key="current_session_context_class">Thread</prop>
                 <prop key="hibernate.show_sql">true</prop><!-- 是否展示SQL -->
                 <prop key="hibernate.hbm2ddl.auto">update</prop><!-- 是否自动创建表结构 -->
                 <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</prop>

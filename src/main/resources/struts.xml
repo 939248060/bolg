@@ -16,7 +16,7 @@
 	    </interceptor>
 	    <interceptor-stack name="loginStack">  
                    <interceptor-ref name="logininterceptor">  
-                       <param name="excludeMethods">loginUser</param>  
+                       <param name="excludeMethods">loginUser,addUser</param>  
                    </interceptor-ref>  
                    <interceptor-ref name="defaultStack"></interceptor-ref>  
             </interceptor-stack>  
