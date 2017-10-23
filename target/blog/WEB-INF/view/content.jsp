@@ -15,8 +15,11 @@
     <div class="container content">
 	<h2><span class="label label-default">最新文章</span></h2>
 	<hr style="height: 5px;"/>
-	<h3>css+div开发</h3>
-	<p>微信公众平台在线客服 微信公众平台接口测试帐号申请 无需公众帐号、快速申请接口测试号 直接体验和测试公众平台所有高级接口关于腾讯 服务协议 客服中心 在线客服 联系...</p>
+	<c:forEach items="${articleList }" var="a">
+	<h3><a href="#">${a.tilie }</a></h3>
+	<p>${a.content }</p>
+	<hr style="height: 5px;"/>
+	</c:forEach>
 	</div>
     <%@include file="/utilpage/stylebutton.jsp"%>
 </body>

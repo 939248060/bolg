@@ -4,7 +4,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="gb2312">
 <title></title>
 <meta name="keywords" content="个人博客模板,博客模板,响应式" />
 <meta name="description" content="如影随形主题的个人博客模板，神秘、俏皮。" />
@@ -25,7 +24,7 @@
 						登录</a></li>
 			</c:if>
 			<c:if test="${!empty sessionScope.user}">
-				<li><a href="register.jsp"><span
+				<li><a href="userAction_editUser_UserInfos?user.id=${user.id }"><span
 						class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;欢迎&nbsp;${sessionScope.user.username }&nbsp;回来</a></li>
 				<li><a href="userAction_outloginUser_main"><span class="glyphicon glyphicon-log-in"></span>
 						推出登录</a></li>

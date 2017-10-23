@@ -13,7 +13,7 @@
 <body>
 	<%@include file="/WEB-INF/view/top.jsp"%>
 	<div class="container">
-		<form class="form-horizontal" role="form" action="weixin_loginUser_main"
+		<form class="form-horizontal" role="form" action="userAction_loginUser_main"
 			method="post">
 			<div class="form-group">
 				<label for="username" class="col-sm-2 control-label">用户名</label>

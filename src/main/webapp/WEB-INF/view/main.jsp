@@ -18,8 +18,7 @@
     <c:if test="${!empty user }">
 	<div class="container userInfo">
 	   <div class="col-sm-12 col-md-2">
-	     <img class="img-responsive touxiang img-rounded" alt="头像" src="/bolg/images/Penguins.jpg" height="200"/>
-	     <a href="${user.headUrl }">下载头像</a>
+	     <img class="img-responsive touxiang img-rounded" alt="头像" src="${user.headUrl }" height="200"/>
 	   </div>
 	   <div class="col-sm-12 col-md-10">
 	      <ul>

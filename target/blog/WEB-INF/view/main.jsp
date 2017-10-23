@@ -18,7 +18,7 @@
     <c:if test="${!empty user }">
 	<div class="container userInfo">
 	   <div class="col-sm-12 col-md-2">
-	     <img class="img-responsive touxiang img-rounded" alt="头像" src="images/touxiang.jpg" height="200"/>
+	     <img class="img-responsive touxiang img-rounded" alt="头像" src="${user.headUrl }" height="200"/>
 	   </div>
 	   <div class="col-sm-12 col-md-10">
 	      <ul>
@@ -32,10 +32,9 @@
 	</div>
 	</c:if>
 	<div class="">
-	   <iframe width="100%" height="220px" frameborder=0 scrolling="no"
-							src=""></iframe>
+	   <iframe width="100%" height="100%" frameborder=0 scrolling="no"
+							src="articleAction_selectArticle_content"></iframe>
 	</div>
-	
 	<%@include file="/WEB-INF/view/buttom.jsp" %>
 	<%@include file="/utilpage/stylebutton.jsp"%>
 </body>

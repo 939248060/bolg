@@ -15,7 +15,7 @@ public class Users {
 	
 	private String password;
 	
-	private Integer jurisdiction; //0 管理员    1 普通用户
+	private Integer jurisdiction; //1 管理员    0 普通用户
 	
 	private String motto; //座右铭
 	

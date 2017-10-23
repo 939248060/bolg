@@ -42,16 +42,18 @@ public class UserAction extends ActionSupport {
 	HttpServletRequest request = ServletActionContext.getRequest();
 	
 	public String addUser() throws IOException {	
+		
 		String realpath = ServletActionContext.getServletContext().getRealPath("/images");
         //D:\apache-tomcat-6.0.18\webapps\struts2_upload\images
 //		String realpath="\\images";
         System.out.println("realpath: "+realpath);
+        String newName = System.currentTimeMillis()+"."+imageContentType.substring(imageContentType.indexOf("/")+1, imageContentType.length());
         if (image != null) {
-            File savefile = new File(new File(realpath), imageFileName);
+            File savefile = new File(new File(realpath),newName );
             if (!savefile.getParentFile().exists())
                 savefile.getParentFile().mkdirs();
             FileUtils.copyFile(image, savefile);
-            user.setHeadUrl(savefile.getAbsolutePath());
+            user.setHeadUrl(request.getContextPath()+"/images"+"/"+newName);
             ActionContext.getContext().put("message", "文件上传成功");
         }
        
@@ -59,12 +61,10 @@ public class UserAction extends ActionSupport {
 		return "addUser_main";
 	}
 	public String selectUser() {		
-		System.out.println("selectUser执行之前");
 		Users user = (Users) request.getSession().getAttribute("user");
 		if(user != null) {
 			this.user = userService.select(user.getId());
 		}
-		System.out.println("selectUser执行之后");	
 		return "selectUser";
 	}
 
@@ -82,10 +82,18 @@ public class UserAction extends ActionSupport {
 	}
 	
 	public String outloginUser() {
-		request.getSession().setAttribute("user", null);
+		request.getSession().removeAttribute("user");
 		return "outloginUser_main";
 	}
 	
+	public String editUser() {
+		Users user = userService.select(this.user.getId());
+		if(user != null) {
+			this.user = user;
+			return "editUser";
+		}		
+		return "editUser_main";	
+	}
 	public Users getUser() {
 		return user;
 	}
