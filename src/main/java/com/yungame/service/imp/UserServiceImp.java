@@ -29,8 +29,7 @@ public class UserServiceImp implements UserService{
 	}
 
 	public int update(Users user) {
-		// TODO Auto-generated method stub
-		return 0;
+		return userDao.update(user);
 	}
 
 	public int add(Users user) {

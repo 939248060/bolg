@@ -1,9 +1,14 @@
 package com.yungame.model;
 
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Users {
@@ -34,6 +39,19 @@ public class Users {
 	private String inetName;//网名
 	
 	private String headUrl;//头像
+
+	@OneToMany(mappedBy="users")
+	private Set<Article> articles;
+	
+	
+	
+	public Set<Article> getArticles() {
+		return articles;
+	}
+
+	public void setArticles(Set<Article> articles) {
+		this.articles = articles;
+	}
 
 	public Integer getId() {
 		return id;

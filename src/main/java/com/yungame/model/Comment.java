@@ -2,10 +2,16 @@ package com.yungame.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+import com.opensymphony.xwork2.util.Key;
 
 @Entity
 public class Comment {
@@ -20,6 +26,19 @@ public class Comment {
 	
 	private Date date;
 
+	@ManyToOne
+	@JoinColumn(name="art_com")
+	private Article article;
+
+	
+	
+	public Article getArticle() {
+		return article;
+	}
+
+	public void setArticle(Article article) {
+		this.article = article;
+	}
 
 	public Integer getId() {
 		return id;

@@ -8,7 +8,7 @@
 <title>花开花落</title>
 <meta name="keywords" content="个人博客模板,博客模板,响应式" />
 <meta name="description" content="如影随形主题的个人博客模板，神秘、俏皮。" />
-<link href="/css/main.css" rel="stylesheet">
+<link href="${cxt }/css/main.css" rel="stylesheet">
 <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
 </head>
 <body>

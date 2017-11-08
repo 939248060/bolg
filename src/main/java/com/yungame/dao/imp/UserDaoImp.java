@@ -25,8 +25,8 @@ public class UserDaoImp extends HibernateDaoSupport implements UserDao {
 	}
 
 	public int update(Users user) {
-		// TODO Auto-generated method stub
-		return 0;
+		this.getHibernateTemplate().update(user);
+		return 1;
 	}
 
 	public int add(Users user) {

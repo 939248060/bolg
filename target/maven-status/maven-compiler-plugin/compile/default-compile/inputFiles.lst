@@ -6,6 +6,7 @@ D:\MyWord\blog\src\main\java\com\yungame\util\SendHttp.java
 D:\MyWord\blog\src\main\java\com\yungame\model\BaseMessage.java
 D:\MyWord\blog\src\main\java\com\yungame\model\ClickButton.java
 D:\MyWord\blog\src\main\java\com\yungame\service\UserService.java
+D:\MyWord\blog\src\main\java\com\yungame\util\UploadUitl.java
 D:\MyWord\blog\src\main\java\com\yungame\dao\imp\UserDaoImp.java
 D:\MyWord\blog\src\main\java\com\yungame\dao\imp\ArticleDaoImp.java
 D:\MyWord\blog\src\main\java\com\yungame\model\Comment.java

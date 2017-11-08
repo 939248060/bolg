@@ -21,6 +21,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.sun.org.apache.regexp.internal.recompile;
 import com.yungame.model.Users;
 import com.yungame.service.UserService;
+import com.yungame.util.UploadUitl;
 
 @Controller
 @Scope("prototype")
@@ -41,22 +42,8 @@ public class UserAction extends ActionSupport {
     
 	HttpServletRequest request = ServletActionContext.getRequest();
 	
-	public String addUser() throws IOException {	
-		
-		String realpath = ServletActionContext.getServletContext().getRealPath("/images");
-        //D:\apache-tomcat-6.0.18\webapps\struts2_upload\images
-//		String realpath="\\images";
-        System.out.println("realpath: "+realpath);
-        String newName = System.currentTimeMillis()+"."+imageContentType.substring(imageContentType.indexOf("/")+1, imageContentType.length());
-        if (image != null) {
-            File savefile = new File(new File(realpath),newName );
-            if (!savefile.getParentFile().exists())
-                savefile.getParentFile().mkdirs();
-            FileUtils.copyFile(image, savefile);
-            user.setHeadUrl(request.getContextPath()+"/images"+"/"+newName);
-            ActionContext.getContext().put("message", "文件上传成功");
-        }
-       
+	public String addUser(){
+		user.setHeadUrl(UploadUitl.uploadPic(request, image, imageFileName, imageContentType)); 
 		userService.add(user);
 		return "addUser_main";
 	}
@@ -87,13 +74,34 @@ public class UserAction extends ActionSupport {
 	}
 	
 	public String editUser() {
-		Users user = userService.select(this.user.getId());
+		Users u = (Users) request.getSession().getAttribute("user");
+		Users user = userService.select(u.getId());
 		if(user != null) {
 			this.user = user;
 			return "editUser";
 		}		
 		return "editUser_main";	
 	}
+	
+	public String updateUser() {
+		Users u = (Users) request.getSession().getAttribute("user");
+		Users user = userService.select(u.getId());
+		user.setAddress(this.user.getAddress());
+		if(image != null && imageFileName != null && imageContentType != null)
+		user.setHeadUrl(UploadUitl.uploadPic(request, image, imageFileName, imageContentType));
+		user.setJob(this.user.getJob());
+		user.setTel(this.user.getTel());
+		user.setMail(this.user.getMail());
+		user.setSex(this.user.getSex());
+		user.setMotto(this.user.getMotto());
+		int isUpdate = userService.update(user);
+		if (isUpdate == 1) {
+			return "updateUser_UserInfos";
+		}
+		return "updateUser_main";
+	}
+	
+	
 	public Users getUser() {
 		return user;
 	}

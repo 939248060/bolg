@@ -37,7 +37,7 @@
 				<label for="headUrl" class="col-sm-2 control-label">头像</label>
 				<div class="col-sm-10">
 					<input type="file" class="" name="image" id="upload"/>
-					<img alt="头像" src="/blog/images/touxiang.jpg" width="200px" height="200" id="touxiang">
+					<img alt="头像" src="" width="200px" height="200" id="touxiang">
 				</div>
 			</div>
 			<div class="form-group">
@@ -78,8 +78,7 @@
 			<div class="form-group">
 				<label for="motto" class="col-sm-2 control-label">座右铭</label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" name="user.motto"
-						placeholder="请输入座右铭">
+					<textarea rows="5" cols="60" name="user.motto"></textarea>
 				</div>
 			</div>
 			<div class="form-group">
@@ -94,7 +93,7 @@
 	<script type="text/javascript">
 	  $(function() {
 		$("#upload").change(function(){
-			alert($(this).val());
+			//alert($(this).val());
 			$("#touxiang").attr("src",$(this).val());
 		})
 	})

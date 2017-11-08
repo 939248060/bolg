@@ -33,7 +33,8 @@
 			method="{2}">
 			<result name="{2}">/WEB-INF/view/{3}.jsp</result>
 			<result name="{2}_main" type="redirect">userAction_selectUser_main</result>
-			<allowed-methods>addUser,selectUser,loginUser,outloginUser,selectArticle,editUser</allowed-methods>
+			<result name="{2}_UserInfos" type="redirect">userAction_editUser_main</result>
+			<allowed-methods>addUser,selectUser,loginUser,outloginUser,selectArticle,editUser,updateUser</allowed-methods>
 		</action>
 	</package>
 

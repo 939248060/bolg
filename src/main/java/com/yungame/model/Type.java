@@ -1,10 +1,13 @@
 package com.yungame.model;
 
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Type {
@@ -15,6 +18,9 @@ public class Type {
 	
 	private String name;
 	
+	@OneToOne
+	@JoinColumn(name="art")
+	private Article article;
 
 	public int getId() {
 		return id;
@@ -30,6 +36,14 @@ public class Type {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public Article getArticle() {
+		return article;
+	}
+
+	public void setArticle(Article article) {
+		this.article = article;
 	}
     
 }

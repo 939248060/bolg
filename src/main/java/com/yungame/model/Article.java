@@ -3,10 +3,13 @@ package com.yungame.model;
 import java.util.Date;
 import java.util.Set;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -21,14 +24,17 @@ public class Article {
 	
 	private String content;
 	
-	private String author;
+	@ManyToOne
+	@JoinColumn(name="articles")
+	private Users users;
 	
 	@OneToOne
+	@JoinColumn(name="tp")
 	private Type type;
 	
 	private Integer browse;
 	
-	@OneToMany
+	@OneToMany(mappedBy="article")
 	private Set<Comment> comment;//评论
 	
 	private Date date;//发表日期
@@ -57,12 +63,14 @@ public class Article {
 		this.content = content;
 	}
 
-	public String getAuthor() {
-		return author;
+
+
+	public Users getUsers() {
+		return users;
 	}
 
-	public void setAuthor(String author) {
-		this.author = author;
+	public void setUsers(Users users) {
+		this.users = users;
 	}
 
 	public Type getType() {

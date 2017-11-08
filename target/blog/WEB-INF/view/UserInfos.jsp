@@ -7,6 +7,7 @@
 <html>
 <head>
 <title>用户详细信息</title>
+<script type="text/javascript" src="${cxt }/js/UserInfos.js"></script>
 <meta name="keywords" content="个人博客模板,博客模板,响应式" />
 <meta name="description" content="如影随形主题的个人博客模板，神秘、俏皮。" />
 <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
@@ -20,6 +21,7 @@
 			<h2 style="font-size: 18px; text-align: center; width: 100%;">${user.inetName }</h2>
 		</div>
 		<div class="col-sm-12 col-md-10">
+		<form action="AA" method="post" onsubmit="">
 			<table class="table table-striped table-responsive">
 				<tr>
 					<td>用户名</td>
@@ -34,8 +36,8 @@
 					<td id="sex">${user.sex == 1?'男':'女' }</td>
 				</tr>
 				<tr>
-					<td id="mail">邮箱</td>
-					<td>${user.mail }</td>
+					<td>邮箱</td>
+					<td  id="mail">${user.mail }</td>
 				</tr>
 				<tr>
 					<td>用户类型</td>
@@ -46,26 +48,27 @@
 					<td>${user.integral }</td>
 				</tr>
 				<tr>
-					<td id="tel">电话</td>
-					<td>${user.tel }</td>
+					<td>电话</td>
+					<td id="tel">${user.tel }</td>
 				</tr>
 				<tr>
-					<td id="address">地址</td>
-					<td>${user.address }</td>
+					<td>地址</td>
+					<td id="address">${user.address }</td>
 				</tr>
 				<tr>
-					<td id="motto">座右铭</td>
-					<td><p>${user.motto }</p></td>
+					<td>座右铭</td>
+					<td id="motto"><p>${user.motto }</p></td>
 				</tr>
 			</table>
 			<div style="width: 200px; margin: 10px auto;" class="center-block">
-				<input type="button" onclick="history.back()"
-					class="btn btn-default" value="返回" /> <input type="button" id="xiugai"
-				 class="btn btn-default" value="修改" />
+				<button type="button" onclick="history.back()"
+					class="btn btn-default" value="">返回</button> 
+					<button type="button" id="xiugai"
+				 class="btn btn-default" value="" onclick="edit()">修改</button>
 			</div>
+			</form>
 		</div>
 	</div>
-    <script type="text/javascript" src="${cxt }/js/UserInfos.js"></script>
 	<%@include file="/WEB-INF/view/buttom.jsp"%>
 	<%@include file="/utilpage/stylebutton.jsp"%>
 </body>
