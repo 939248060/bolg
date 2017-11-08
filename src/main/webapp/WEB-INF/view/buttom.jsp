@@ -11,7 +11,7 @@
 </head>
 <body>
     <div class="container" style="background-color: #CCCCCC;">         
-        <span style="display: block; width: 200px; height:50px; line-height:50px; margin: 0px auto;">花开花落社区 ||<a href="#">后台管理</a></span>
+        <span style="display: block; width: 200px; height:50px; line-height:50px; margin: 0px auto;">花开花落社区 ||<a href="adminAction_adminMess_Admin_Main">后台管理</a></span>
     </div>
 	<%@include file="/utilpage/stylebutton.jsp"%>
 </body>

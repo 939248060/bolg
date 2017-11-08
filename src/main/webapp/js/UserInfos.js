@@ -24,5 +24,9 @@ function edit(){
 	$("#xiugai").append("<button type='submit' class='btn btn-default'>保存</button>");
 	$("button[onclick='edit();']").remove();	
 	$("#headUrl").append("<input type='file' name='image'/>");
+	var inetName = $("#headUrl h2").html();
+//	alert(inetName);
+	$("#headUrl").append("网名：<input type='text' name='user.inetName' value='"+inetName+"'/>");
+	$("#headUrl h2").remove();
 	$("#headUrl input[type='hidden']").remove();
 }

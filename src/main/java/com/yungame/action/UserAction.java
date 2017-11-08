@@ -84,8 +84,8 @@ public class UserAction extends ActionSupport {
 	}
 	
 	public String updateUser() {
-		Users u = (Users) request.getSession().getAttribute("user");
-		Users user = userService.select(u.getId());
+		Users user = (Users) request.getSession().getAttribute("user");
+//		Users user = userService.select(u.getId());
 		user.setAddress(this.user.getAddress());
 		if(image != null && imageFileName != null && imageContentType != null)
 		user.setHeadUrl(UploadUitl.uploadPic(request, image, imageFileName, imageContentType));
@@ -94,6 +94,7 @@ public class UserAction extends ActionSupport {
 		user.setMail(this.user.getMail());
 		user.setSex(this.user.getSex());
 		user.setMotto(this.user.getMotto());
+		user.setInetName(this.user.getInetName());
 		int isUpdate = userService.update(user);
 		if (isUpdate == 1) {
 			return "updateUser_UserInfos";
