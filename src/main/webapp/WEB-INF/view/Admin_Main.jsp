@@ -8,18 +8,23 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>后台管理</title>
+<link rel="stylesheet" href="${cxt }/css/Admin_Main.css">
 </head>
 <body>
 	<%@include file="top.jsp"%>
-    <div class="meun_left">
-       <ul>
-         <li>用户管理</li>
-         <li>文章管理</li>
-         <li>相册管理</li>
-       </ul>
-    </div>
-     
+    <div class="container">
+		<div class="meun_left">
+			<ul>
+				<li><a href="#">用户管理</a></li>
+				<li><a href="#">文章管理</a></li>
+				<li><a href="#">相册管理</a></li>
+			</ul>
+		</div>
+		<div class="meun_right">
 
+        </div>
+	</div>
+    
 
 	<%@include file="/WEB-INF/view/buttom.jsp"%>
 	<%@include file="/utilpage/stylebutton.jsp"%>
